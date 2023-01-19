@@ -43,7 +43,7 @@ app.use('/api/v1/auth', authRouter)
 app.use('/api/v1/jobs', authenticatedUser, jobsRouter)
 
 app.get('*', function (request, response) {
-  response.sendFile(path.resolve(__dirname, './jobify_front/build/index.html'))
+  response.sendFile(path.resolve(__dirname, './jobify_Front/build/index.html'))
 })
 
 app.use(notFoundMiddleware)
