@@ -17,6 +17,38 @@ const Wrapper = styled.article`
       letter-spacing: 0;
     }
   }
+  .jobLinks {
+    font-size: 0.8rem;
+    color: var(--primary-500);
+    text-decoration: underline;
+    text-transform: capitalize;
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+    .icon {
+      margin-right: 0.1rem;
+      color: var(--grey-400);
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .subtitleGroup {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    @media (min-width: 576px) {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+  .linksGroup {
+    display: flex;
+
+    align-items: center;
+  }
+
   .main-icon {
     width: 60px;
     height: 60px;

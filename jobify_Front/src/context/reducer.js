@@ -168,7 +168,9 @@ const reducer = (state, action) => {
       company: '',
       jobLocation: '',
       jobType: 'full-time',
-      status: 'pending'
+      status: 'pending',
+      companyWebSite: '',
+      positionUrl: ''
     }
     return {
       ...state,
@@ -220,7 +222,16 @@ const reducer = (state, action) => {
 
   if (action.type === SET_EDIT_JOB) {
     const job = state.jobs.find((job) => job._id === action.payload.id)
-    const { _id, position, company, jobLocation, jobType, status } = job
+    const {
+      _id,
+      position,
+      company,
+      jobLocation,
+      jobType,
+      status,
+      companyWebSite,
+      positionUrl
+    } = job
 
     return {
       ...state,
@@ -230,7 +241,9 @@ const reducer = (state, action) => {
       company,
       jobLocation,
       jobType,
-      status
+      status,
+      companyWebSite,
+      positionUrl
     }
   }
 

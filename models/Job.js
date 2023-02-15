@@ -27,6 +27,12 @@ const JobSchema = new mongoose.Schema(
       default: 'my city',
       required: true
     },
+    companyWebSite: {
+      type: String
+    },
+    positionUrl: {
+      type: String
+    },
     createdBy: {
       type: mongoose.Types.ObjectId,
       ref: 'User',

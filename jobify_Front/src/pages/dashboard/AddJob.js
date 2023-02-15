@@ -17,6 +17,8 @@ const AddJob = () => {
     jobTypeOptions,
     status,
     statusOptions,
+    companyWebSite,
+    positionUrl,
     handleChange,
     clearValues,
     createJob,
@@ -91,6 +93,50 @@ const AddJob = () => {
             onChange={handleJobInput}
             list={statusOptions}
           />
+
+          {/* test area  */}
+          <FormRow
+            type="text"
+            labelText="Company Web site"
+            name="companyWebSite"
+            value={companyWebSite}
+            onChange={handleJobInput}
+          />
+          <FormRow
+            type="text"
+            labelText="position Url"
+            name="positionUrl"
+            value={positionUrl}
+            onChange={handleJobInput}
+          />
+          {/* <FormRow
+            type="text"
+            labelText="compay link"
+            name="compayLink"
+            value={position}
+            onChange={handleJobInput}
+          />
+          <FormRow
+            type="text"
+            labelText="adress"
+            name="adress"
+            value={position}
+            onChange={handleJobInput}
+          />
+          <FormRow
+            type="text"
+            labelText="contact"
+            name="contact"
+            value={position}
+            onChange={handleJobInput}
+          />
+          <FormRow
+            type="textarea"
+            name="comment"
+            value={position}
+            onChange={handleJobInput}
+          /> */}
+          {/* test area end */}
 
           <div className="btn-container">
             <button

@@ -7,7 +7,12 @@ import { useAppContext } from '../context/appContext'
 import Wrapper from '../assets/wrappers/Job'
 import JobInfo from './JobInfo'
 
-import { FaLocationArrow, FaBriefcase, FaCalendarAlt } from 'react-icons/fa'
+import {
+  FaLocationArrow,
+  FaBriefcase,
+  FaCalendarAlt,
+  FaLink
+} from 'react-icons/fa'
 
 const Job = ({
   _id,
@@ -16,7 +21,9 @@ const Job = ({
   jobLocation,
   jobType,
   createdAt,
-  status
+  status,
+  companyWebSite,
+  positionUrl
 }) => {
   const { setEditJob, deleteJob } = useAppContext()
 
@@ -28,7 +35,40 @@ const Job = ({
         <div className="main-icon">{company.charAt(0)}</div>
         <div className="info">
           <h5>{position}</h5>
-          <p>{company}</p>
+          <div className="subtitleGroup">
+            <div>{company}</div>
+            {/* test new fields  */}
+            <div className="linksGroup">
+              {companyWebSite && (
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  className="jobLinks"
+                  href={companyWebSite}
+                >
+                  <span className="icon">
+                    <FaLink />
+                  </span>
+                  Company
+                </a>
+              )}
+              {positionUrl && (
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  className="jobLinks"
+                  href={positionUrl}
+                >
+                  <span className="icon">
+                    <FaLink />
+                  </span>
+                  position
+                </a>
+              )}
+            </div>
+
+            {/* test new fields end */}
+          </div>
         </div>
       </header>
       <div className="content">
@@ -65,6 +105,8 @@ Job.propTypes = {
   jobLocation: PropTypes.string,
   jobType: PropTypes.string,
   createdAt: PropTypes.string,
-  status: PropTypes.string
+  status: PropTypes.string,
+  companyWebSite: PropTypes.string,
+  positionUrl: PropTypes.string
 }
 export default Job
