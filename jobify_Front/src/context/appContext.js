@@ -59,6 +59,18 @@ const initialState = {
   status: 'pending',
   companyWebSite: '',
   positionUrl: '',
+  comment: '',
+  adress: '',
+  contact: '',
+  contact2: '',
+  salary: '',
+  targetSourceOptions: [
+    'targeted by a recruiter',
+    'spontaneous application',
+    'job advertisement',
+    'cooptation'
+  ],
+  targetSource: 'job advertisement',
   jobs: [],
   totalJobs: 0,
   numOfPages: 1,
@@ -221,7 +233,13 @@ const AppProvider = ({ children }) => {
         jobType,
         status,
         companyWebSite,
-        positionUrl
+        positionUrl,
+        comment,
+        contact,
+        contact2,
+        adress,
+        targetSource,
+        salary
       } = state
       await authFetch.post('/jobs', {
         position,
@@ -230,7 +248,13 @@ const AppProvider = ({ children }) => {
         jobType,
         status,
         companyWebSite,
-        positionUrl
+        positionUrl,
+        comment,
+        contact,
+        contact2,
+        adress,
+        targetSource,
+        salary
       })
       dispatch({ type: CREATE_JOB_SUCCESS })
       dispatch({ type: CLEAR_VALUES })
@@ -285,7 +309,13 @@ const AppProvider = ({ children }) => {
         jobType,
         status,
         companyWebSite,
-        positionUrl
+        positionUrl,
+        comment,
+        adress,
+        contact,
+        contact2,
+        targetSource,
+        salary
       } = state
       await authFetch.patch(`/jobs/${state.editJobId}`, {
         position,
@@ -294,7 +324,13 @@ const AppProvider = ({ children }) => {
         jobType,
         status,
         companyWebSite,
-        positionUrl
+        positionUrl,
+        comment,
+        adress,
+        contact,
+        contact2,
+        targetSource,
+        salary
       })
       dispatch({ type: EDIT_JOB_SUCCESS })
       dispatch({ type: CLEAR_VALUES })

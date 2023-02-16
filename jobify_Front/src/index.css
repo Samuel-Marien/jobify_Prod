@@ -39,7 +39,7 @@ html {
   --black: #222;
   --white: #fff;
   --red-light: #f8d7da;
-  --red-dark: #842029;
+  --red-dark: #591b20;
   --green-light: #d1e7dd;
   --green-dark: #0f5132;
 
@@ -244,7 +244,7 @@ ul {
 }
 
 .form-textarea {
-  height: 7rem;
+  height: 8rem;
 }
 ::placeholder {
   font-family: inherit;

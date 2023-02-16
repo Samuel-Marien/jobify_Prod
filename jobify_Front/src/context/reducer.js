@@ -170,7 +170,13 @@ const reducer = (state, action) => {
       jobType: 'full-time',
       status: 'pending',
       companyWebSite: '',
-      positionUrl: ''
+      positionUrl: '',
+      comment: '',
+      adress: '',
+      contact: '',
+      contact2: '',
+      salary: '',
+      targetSource: 'job advertisement'
     }
     return {
       ...state,
@@ -230,7 +236,12 @@ const reducer = (state, action) => {
       jobType,
       status,
       companyWebSite,
-      positionUrl
+      positionUrl,
+      comment,
+      adress,
+      contact,
+      contact2,
+      salary
     } = job
 
     return {
@@ -243,7 +254,12 @@ const reducer = (state, action) => {
       jobType,
       status,
       companyWebSite,
-      positionUrl
+      positionUrl,
+      comment,
+      adress,
+      contact,
+      contact2,
+      salary
     }
   }
 

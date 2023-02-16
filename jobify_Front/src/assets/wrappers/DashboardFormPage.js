@@ -20,6 +20,9 @@ const Wrapper = styled.section`
   .form-row {
     margin-bottom: 0;
   }
+  
+  }
+
   .form-center {
     display: grid;
     row-gap: 0.5rem;

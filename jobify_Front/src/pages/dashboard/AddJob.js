@@ -1,6 +1,11 @@
 import React from 'react'
 
-import { FormRow, Alert, FormRowSelect } from '../../components'
+import {
+  FormRow,
+  Alert,
+  FormRowSelect,
+  FormRowTextArea
+} from '../../components'
 import { useAppContext } from '../../context/appContext'
 import Wrapper from '../../assets/wrappers/DashboardFormPage'
 
@@ -18,11 +23,18 @@ const AddJob = () => {
     status,
     statusOptions,
     companyWebSite,
+    comment,
     positionUrl,
     handleChange,
     clearValues,
     createJob,
-    editJob
+    editJob,
+    adress,
+    contact,
+    contact2,
+    targetSource,
+    targetSourceOptions,
+    salary
   } = useAppContext()
 
   const handleSubmit = (e) => {
@@ -67,14 +79,6 @@ const AddJob = () => {
             value={company}
             onChange={handleJobInput}
           />
-          {/* location */}
-          <FormRow
-            type="text"
-            labelText="location"
-            name="jobLocation"
-            value={jobLocation}
-            onChange={handleJobInput}
-          />
 
           {/* job type */}
           <FormRowSelect
@@ -83,6 +87,22 @@ const AddJob = () => {
             value={jobType}
             onChange={handleJobInput}
             list={jobTypeOptions}
+          />
+
+          <FormRow
+            type="text"
+            labelText="position Url"
+            name="positionUrl"
+            value={positionUrl}
+            onChange={handleJobInput}
+          />
+
+          <FormRow
+            type="text"
+            labelText="Company Web site"
+            name="companyWebSite"
+            value={companyWebSite}
+            onChange={handleJobInput}
           />
 
           {/* job status */}
@@ -94,49 +114,69 @@ const AddJob = () => {
             list={statusOptions}
           />
 
-          {/* test area  */}
+          {/* location */}
           <FormRow
             type="text"
-            labelText="Company Web site"
-            name="companyWebSite"
-            value={companyWebSite}
+            labelText="location"
+            name="jobLocation"
+            value={jobLocation}
             onChange={handleJobInput}
           />
-          <FormRow
-            type="text"
-            labelText="position Url"
-            name="positionUrl"
-            value={positionUrl}
-            onChange={handleJobInput}
-          />
-          {/* <FormRow
-            type="text"
-            labelText="compay link"
-            name="compayLink"
-            value={position}
-            onChange={handleJobInput}
-          />
+
+          {/* adress  */}
           <FormRow
             type="text"
             labelText="adress"
             name="adress"
-            value={position}
+            value={adress}
             onChange={handleJobInput}
           />
+
+          {/* target source  */}
+          <FormRowSelect
+            labelText="target source"
+            name="targetSource"
+            value={targetSource}
+            onChange={handleJobInput}
+            list={targetSourceOptions}
+          />
+
+          {/* contact 1  */}
           <FormRow
             type="text"
-            labelText="contact"
+            labelText="contact 1"
             name="contact"
-            value={position}
+            value={contact}
             onChange={handleJobInput}
           />
+          {/* contact 2  */}
           <FormRow
-            type="textarea"
-            name="comment"
-            value={position}
+            type="text"
+            labelText="contact 2"
+            name="contact2"
+            value={contact2}
             onChange={handleJobInput}
-          /> */}
-          {/* test area end */}
+          />
+
+          {/* salary  */}
+          <FormRow
+            type="number"
+            labelText="salary (years)"
+            name="salary"
+            value={salary}
+            onChange={handleJobInput}
+          />
+
+          {/* comment  */}
+          <FormRowTextArea
+            type="text"
+            labelText="comment"
+            name="comment"
+            value={comment}
+            onChange={handleJobInput}
+          />
+
+          <br />
 
           <div className="btn-container">
             <button

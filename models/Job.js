@@ -33,6 +33,30 @@ const JobSchema = new mongoose.Schema(
     positionUrl: {
       type: String
     },
+    comment: {
+      type: String
+    },
+    adress: {
+      type: String
+    },
+    contact: {
+      type: String
+    },
+    contact2: {
+      type: String
+    },
+    targetSource: {
+      type: String,
+      enum: [
+        'targeted by a recruiter',
+        'spontaneous application',
+        'job advertisement',
+        'cooptation'
+      ]
+    },
+    salary: {
+      type: Number
+    },
     createdBy: {
       type: mongoose.Types.ObjectId,
       ref: 'User',

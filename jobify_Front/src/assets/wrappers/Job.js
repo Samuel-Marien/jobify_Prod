@@ -34,6 +34,98 @@ const Wrapper = styled.article`
     }
   }
 
+  .subInfosContent {
+    border-radius: 5px;
+    padding: 0.5rem;
+    margin: 10px 0px 10px 0px;
+    background-color: var(--grey-50);
+  }
+
+  .subInfosContent_header {
+    border-bottom: 1px solid var(--grey-200);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    p {
+      font-size: 1.2rem;
+      padding: 0px;
+      margin: 0px;
+    }
+  }
+
+  .closedLogo {
+    color: var(--primary-500);
+  }
+  .closedButton {
+    color: #b0565d;
+    cursor: pointer;
+  }
+  .closedButton:hover {
+    color: var(--red-dark);
+  }
+
+  .comment {
+    margin-top: 1rem;
+    display: flex;
+    align-items: start;
+    span {
+      color: var(--grey-400);
+      display: flex;
+      align-items: baseline;
+      margin-top: 0.4rem;
+    }
+    p {
+      padding: 0px;
+      margin: 0px;
+      margin-left: 1rem;
+      padding-left: 0.5rem;
+      border-left: 1px solid var(--grey-200);
+      font-style: italic;
+    }
+  }
+
+  @keyframes infoContentAnimation {
+    0% {
+      width: 100%;
+      height: 0%;
+      opacity: 0;
+    }
+    33% {
+      width: 100%;
+      height: 33%;
+      opacity: 0.33;
+    }
+    66% {
+      width: 100%;
+      height: 66%;
+      opacity: 0.6;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  .subInfosContent {
+    animation-name: infoContentAnimation;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-out;
+  }
+
+  .contact {
+    display: flex;
+    align-items: center;
+    span {
+      color: var(--grey-400);
+      display: flex;
+      align-items: center;
+    }
+    p {
+      padding: 0px;
+      margin: 0px;
+      margin-left: 1rem;
+    }
+  }
+
   .subtitleGroup {
     display: flex;
     justify-content: space-between;
@@ -43,10 +135,30 @@ const Wrapper = styled.article`
       align-items: center;
     }
   }
+
   .linksGroup {
     display: flex;
-
     align-items: center;
+  }
+
+  .btn_show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.5rem;
+    cursor: pointer;
+    padding: 0.1rem 0.5rem 0.1rem 0.5rem;
+    border-radius: 5px;
+    width: max-content;
+    span {
+      display: flex;
+      align-items: center;
+    }
+    p {
+      padding: 0px;
+      margin: 0px;
+      margin-left: 0.5rem;
+    }
   }
 
   .main-icon {

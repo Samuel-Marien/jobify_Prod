@@ -13,6 +13,7 @@ const Wrapper = styled.section`
   .form-row {
     margin-bottom: 0;
   }
+
   .form-center {
     display: grid;
     grid-template-columns: 1fr;

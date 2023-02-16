@@ -10,6 +10,7 @@ import JobsContainer from './JobsContainer'
 import StatsContainer from './StatsContainer'
 import ChartsContainer from './ChartsContainer'
 import Loading from './Loading'
+import FormRowTextArea from './FormRowTextArea'
 
 export {
   Logo,
@@ -23,5 +24,6 @@ export {
   JobsContainer,
   StatsContainer,
   ChartsContainer,
-  Loading
+  Loading,
+  FormRowTextArea
 }

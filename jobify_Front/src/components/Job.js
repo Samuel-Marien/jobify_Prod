@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import moment from 'moment'
 import { Link } from 'react-router-dom'
@@ -11,7 +11,15 @@ import {
   FaLocationArrow,
   FaBriefcase,
   FaCalendarAlt,
-  FaLink
+  FaLink,
+  FaCommentAlt,
+  FaUserTie,
+  FaStoreAlt,
+  FaUser,
+  FaSearchPlus,
+  FaEuroSign,
+  FaWindowClose,
+  FaInfoCircle
 } from 'react-icons/fa'
 
 const Job = ({
@@ -23,12 +31,24 @@ const Job = ({
   createdAt,
   status,
   companyWebSite,
-  positionUrl
+  positionUrl,
+  comment,
+  adress,
+  contact,
+  contact2,
+  targetSource,
+  salary
 }) => {
   const { setEditJob, deleteJob } = useAppContext()
+  const [show, setShow] = useState(false)
 
   let date = moment(createdAt)
   date = date.format('MMM Do, YYYY')
+
+  const handleShow = () => {
+    setShow(!show)
+  }
+
   return (
     <Wrapper>
       <header>
@@ -37,7 +57,6 @@ const Job = ({
           <h5>{position}</h5>
           <div className="subtitleGroup">
             <div>{company}</div>
-            {/* test new fields  */}
             <div className="linksGroup">
               {companyWebSite && (
                 <a
@@ -66,8 +85,6 @@ const Job = ({
                 </a>
               )}
             </div>
-
-            {/* test new fields end */}
           </div>
         </div>
       </header>
@@ -78,6 +95,87 @@ const Job = ({
           <JobInfo icon={<FaBriefcase />} text={jobType} />
           <div className={`status ${status}`}>{status}</div>
         </div>
+
+        {show ? (
+          <div className="subInfosContent">
+            <div className="subInfosContent_header">
+              <span className="closedLogo">
+                <FaInfoCircle />
+              </span>
+              <p>Detailed infos</p>
+              <span className="closedButton" onClick={handleShow}>
+                <FaWindowClose />
+              </span>
+            </div>
+            {contact && (
+              <div className="contact">
+                <span>
+                  <FaUserTie />
+                </span>
+
+                <p>{contact}</p>
+              </div>
+            )}
+            {contact2 && (
+              <div className="contact">
+                <span>
+                  <FaUser />
+                </span>
+
+                <p>{contact2}</p>
+              </div>
+            )}
+            {adress && (
+              <div className="contact">
+                <span>
+                  <FaStoreAlt />
+                </span>
+                <p>
+                  {jobLocation} - {adress}
+                </p>
+              </div>
+            )}
+            {targetSource && (
+              <div className="contact">
+                <span>
+                  <FaSearchPlus />
+                </span>
+                <p>{targetSource}</p>
+              </div>
+            )}
+            {salary && (
+              <div className="contact">
+                <span>
+                  <FaEuroSign />
+                </span>
+                <p>{salary} € / years</p>
+              </div>
+            )}
+            {comment && (
+              <div className="comment">
+                <span>
+                  <FaCommentAlt />
+                </span>
+
+                <p>{comment}</p>
+              </div>
+            )}
+          </div>
+        ) : (
+          (contact ||
+            contact2 ||
+            adress ||
+            targetSource ||
+            salary ||
+            comment) && (
+            <div className="btn_show btn" onClick={handleShow}>
+              <span>
+                <FaInfoCircle />
+              </span>
+              <p>show details</p>
+            </div>
+          )
+        )}
 
         <footer>
           <div className="actions">
@@ -107,6 +205,12 @@ Job.propTypes = {
   createdAt: PropTypes.string,
   status: PropTypes.string,
   companyWebSite: PropTypes.string,
-  positionUrl: PropTypes.string
+  positionUrl: PropTypes.string,
+  comment: PropTypes.string,
+  adress: PropTypes.string,
+  contact: PropTypes.string,
+  contact2: PropTypes.string,
+  targetSource: PropTypes.string,
+  salary: PropTypes.number
 }
 export default Job
