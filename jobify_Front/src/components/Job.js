@@ -49,9 +49,23 @@ const textToIcon = (key) => {
       return <img style={{ height: '23px' }} src={logoDevConnect} />
     case 'Other':
       return <img style={{ height: '23px' }} src={logoOther} />
+  }
+}
 
-    default:
-      break
+const textToEmoji = (key) => {
+  switch (key) {
+    case 'Neutral':
+      return ''
+    case 'Very borred':
+      return '😡'
+    case 'Borred':
+      return '😠'
+    case 'Nice':
+      return '🙂'
+    case 'Very nice':
+      return '😁'
+    case 'Lovely':
+      return '😍'
   }
 }
 
@@ -72,7 +86,8 @@ const Job = ({
   targetSource,
   salary,
   salary2,
-  jobSearchSite
+  jobSearchSite,
+  feeling
 }) => {
   const { setEditJob, deleteJob } = useAppContext()
   const [show, setShow] = useState(false)
@@ -89,11 +104,15 @@ const Job = ({
       <header>
         <div className="main-icon">{company.charAt(0)}</div>
         <div className="info">
-          <h5>{position}</h5>
+          <div className="info_title">
+            <h5>{position}</h5>{' '}
+            <h5 className="info_title_emoji">
+              {feeling && textToEmoji(feeling)}
+            </h5>
+          </div>
           <div className="subtitleGroup">
-            <div>{company}</div>
-            <div className="linksGroup">
-              {companyWebSite && (
+            {companyWebSite ? (
+              <>
                 <a
                   target="_blank"
                   rel="noreferrer"
@@ -103,20 +122,36 @@ const Job = ({
                   <span className="icon">
                     <FaLink />
                   </span>
-                  Company
+                  {company}
                 </a>
-              )}
-              {positionUrl && (
-                <a
-                  target="_blank"
-                  rel="noreferrer"
-                  className="jobLinks"
-                  href={positionUrl}
-                >
-                  {textToIcon(jobSearchSite)}
-                </a>
-              )}
-            </div>
+                {positionUrl && (
+                  <a
+                    target="_blank"
+                    rel="noreferrer"
+                    className="jobLinks"
+                    href={positionUrl}
+                  >
+                    {textToIcon(jobSearchSite)}
+                  </a>
+                )}
+              </>
+            ) : (
+              <div>
+                {company}{' '}
+                {positionUrl && (
+                  <a
+                    target="_blank"
+                    rel="noreferrer"
+                    className="jobLinks"
+                    href={positionUrl}
+                  >
+                    {textToIcon(jobSearchSite)}
+                  </a>
+                )}
+              </div>
+            )}
+
+            <div className="linksGroup"></div>
           </div>
         </div>
       </header>
@@ -181,7 +216,7 @@ const Job = ({
                   <FaEuroSign />
                 </span>
                 <p>
-                  {salary} €/years {salary2 && `to ${salary2} €/years`}
+                  {salary} {salary2 && `to ${salary2} `}€/years
                 </p>
               </div>
             )}
@@ -247,6 +282,7 @@ Job.propTypes = {
   targetSource: PropTypes.string,
   jobSearchSite: PropTypes.string,
   salary: PropTypes.number,
-  salary2: PropTypes.number
+  salary2: PropTypes.number,
+  feeling: PropTypes.string
 }
 export default Job

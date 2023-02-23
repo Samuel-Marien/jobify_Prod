@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 const FormRowSelect = ({ labelText, name, value, onChange, list }) => {
   return (
     <div className="form-row">
-      <label htmlFor="jobType" className="form-label">
+      <label htmlFor={name} className="form-label">
         {labelText || name}
       </label>
 

@@ -24,7 +24,7 @@ const Wrapper = styled.article`
     text-transform: capitalize;
     display: flex;
     align-items: center;
-    margin-right: 1rem;
+    margin-right: 0.5rem;
     .icon {
       margin-right: 0.1rem;
       color: var(--grey-400);
@@ -32,6 +32,16 @@ const Wrapper = styled.article`
       display: flex;
       align-items: center;
     }
+  }
+
+  .info_title {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .info_title_emoji {
+    transform: rotate(25deg);
+    text-shadow: 3px 3px 6px var(--grey-400);
   }
 
   .subInfosContent {
@@ -94,12 +104,12 @@ const Wrapper = styled.article`
     33% {
       width: 100%;
       height: 33%;
-      opacity: 0.33;
+      opacity: 0.2;
     }
     66% {
       width: 100%;
       height: 66%;
-      opacity: 0.6;
+      opacity: 0.5;
     }
     100% {
       opacity: 1;
@@ -107,7 +117,7 @@ const Wrapper = styled.article`
   }
   .subInfosContent {
     animation-name: infoContentAnimation;
-    animation-duration: 0.5s;
+    animation-duration: 0.2s;
     animation-timing-function: ease-out;
   }
 
@@ -128,7 +138,6 @@ const Wrapper = styled.article`
 
   .subtitleGroup {
     display: flex;
-    justify-content: space-between;
     flex-direction: column;
     @media (min-width: 576px) {
       flex-direction: row;

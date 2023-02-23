@@ -83,6 +83,15 @@ const initialState = {
     'cooptation'
   ],
   targetSource: 'job advertisement',
+  feelingOptions: [
+    'Neutral',
+    'Very borred',
+    'Borred',
+    'Nice',
+    'Very nice',
+    'Lovely'
+  ],
+  feeling: 'Neutral',
   jobs: [],
   totalJobs: 0,
   numOfPages: 1,
@@ -253,7 +262,8 @@ const AppProvider = ({ children }) => {
         targetSource,
         salary,
         salary2,
-        jobSearchSite
+        jobSearchSite,
+        feeling
       } = state
       await authFetch.post('/jobs', {
         position,
@@ -270,7 +280,8 @@ const AppProvider = ({ children }) => {
         targetSource,
         salary,
         salary2,
-        jobSearchSite
+        jobSearchSite,
+        feeling
       })
       dispatch({ type: CREATE_JOB_SUCCESS })
       dispatch({ type: CLEAR_VALUES })
@@ -333,7 +344,8 @@ const AppProvider = ({ children }) => {
         targetSource,
         salary,
         salary2,
-        jobSearchSite
+        jobSearchSite,
+        feeling
       } = state
       await authFetch.patch(`/jobs/${state.editJobId}`, {
         position,
@@ -350,7 +362,8 @@ const AppProvider = ({ children }) => {
         targetSource,
         salary,
         salary2,
-        jobSearchSite
+        jobSearchSite,
+        feeling
       })
       dispatch({ type: EDIT_JOB_SUCCESS })
       dispatch({ type: CLEAR_VALUES })

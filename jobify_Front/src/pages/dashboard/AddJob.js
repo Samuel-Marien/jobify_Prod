@@ -37,7 +37,9 @@ const AddJob = () => {
     salary,
     salary2,
     jobSearchSite,
-    jobSearchSiteOptions
+    jobSearchSiteOptions,
+    feelingOptions,
+    feeling
   } = useAppContext()
 
   const handleSubmit = (e) => {
@@ -175,12 +177,14 @@ const AddJob = () => {
             value={salary2}
             onChange={handleJobInput}
           />
-          <FormRow
-            type="number"
-            labelText="impression"
-            name="salary"
-            value={salary}
+          {/* Feeling  */}
+
+          <FormRowSelect
+            labelText="Feeling"
+            name="feeling"
+            value={feeling}
             onChange={handleJobInput}
+            list={feelingOptions}
           />
           {/* comment  */}
           <FormRowTextArea

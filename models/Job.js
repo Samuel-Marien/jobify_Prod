@@ -22,6 +22,11 @@ const JobSchema = new mongoose.Schema(
       enum: ['full-time', 'part-time', 'remote', 'internship'],
       default: 'full-time'
     },
+    feeling: {
+      type: String,
+      enum: ['Neutral', 'Very borred', 'Borred', 'Nice', 'Very nice', 'Lovely'],
+      default: 'Neutral'
+    },
     jobLocation: {
       type: String,
       default: 'my city',
@@ -65,7 +70,8 @@ const JobSchema = new mongoose.Schema(
         'Viadeo',
         'Dev & Connect',
         'Other'
-      ]
+      ],
+      default: 'Other'
     },
     salary: {
       type: Number
