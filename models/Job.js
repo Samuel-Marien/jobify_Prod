@@ -54,7 +54,23 @@ const JobSchema = new mongoose.Schema(
         'cooptation'
       ]
     },
+    jobSearchSite: {
+      type: String,
+      enum: [
+        'Welcome to the Jungle',
+        'We love dev',
+        'Linkedin',
+        'indeed',
+        'talent.io',
+        'Viadeo',
+        'Dev & Connect',
+        'Other'
+      ]
+    },
     salary: {
+      type: Number
+    },
+    salary2: {
       type: Number
     },
     createdBy: {

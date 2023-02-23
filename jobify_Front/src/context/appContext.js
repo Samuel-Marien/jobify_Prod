@@ -64,6 +64,18 @@ const initialState = {
   contact: '',
   contact2: '',
   salary: '',
+  salary2: '',
+  jobSearchSiteOptions: [
+    'Welcome to the Jungle',
+    'We love dev',
+    'Linkedin',
+    'indeed',
+    'talent.io',
+    'Viadeo',
+    'Dev & Connect',
+    'Other'
+  ],
+  jobSearchSite: 'Other',
   targetSourceOptions: [
     'targeted by a recruiter',
     'spontaneous application',
@@ -239,7 +251,9 @@ const AppProvider = ({ children }) => {
         contact2,
         adress,
         targetSource,
-        salary
+        salary,
+        salary2,
+        jobSearchSite
       } = state
       await authFetch.post('/jobs', {
         position,
@@ -254,7 +268,9 @@ const AppProvider = ({ children }) => {
         contact2,
         adress,
         targetSource,
-        salary
+        salary,
+        salary2,
+        jobSearchSite
       })
       dispatch({ type: CREATE_JOB_SUCCESS })
       dispatch({ type: CLEAR_VALUES })
@@ -315,7 +331,9 @@ const AppProvider = ({ children }) => {
         contact,
         contact2,
         targetSource,
-        salary
+        salary,
+        salary2,
+        jobSearchSite
       } = state
       await authFetch.patch(`/jobs/${state.editJobId}`, {
         position,
@@ -330,7 +348,9 @@ const AppProvider = ({ children }) => {
         contact,
         contact2,
         targetSource,
-        salary
+        salary,
+        salary2,
+        jobSearchSite
       })
       dispatch({ type: EDIT_JOB_SUCCESS })
       dispatch({ type: CLEAR_VALUES })

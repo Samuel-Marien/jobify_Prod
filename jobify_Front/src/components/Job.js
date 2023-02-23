@@ -22,6 +22,39 @@ import {
   FaInfoCircle
 } from 'react-icons/fa'
 
+import logoWelcome from '../assets/images/faviconWelcome.png'
+import logoWLD from '../assets/images/faviconWLD.ico'
+import logoLinkedin from '../assets/images/LinkedIn-Symbole.png'
+import logoIndeed from '../assets/images/indeed_logo.png'
+import logoTalent from '../assets/images/talentLogo.png'
+import logoViadeo from '../assets/images/logo_Viadeo.png'
+import logoDevConnect from '../assets/images/devandConect_logo.jpeg'
+import logoOther from '../assets/images/other.png'
+
+const textToIcon = (key) => {
+  switch (key) {
+    case 'Welcome to the Jungle':
+      return <img style={{ height: '20px' }} src={logoWelcome} />
+    case 'We love dev':
+      return <img style={{ height: '30px' }} src={logoWLD} />
+    case 'Linkedin':
+      return <img style={{ height: '22px' }} src={logoLinkedin} />
+    case 'indeed':
+      return <img style={{ height: '15px' }} src={logoIndeed} />
+    case 'talent.io':
+      return <img style={{ height: '13px' }} src={logoTalent} />
+    case 'Viadeo':
+      return <img style={{ height: '23px' }} src={logoViadeo} />
+    case 'Dev & Connect':
+      return <img style={{ height: '23px' }} src={logoDevConnect} />
+    case 'Other':
+      return <img style={{ height: '23px' }} src={logoOther} />
+
+    default:
+      break
+  }
+}
+
 const Job = ({
   _id,
   position,
@@ -37,7 +70,9 @@ const Job = ({
   contact,
   contact2,
   targetSource,
-  salary
+  salary,
+  salary2,
+  jobSearchSite
 }) => {
   const { setEditJob, deleteJob } = useAppContext()
   const [show, setShow] = useState(false)
@@ -78,10 +113,7 @@ const Job = ({
                   className="jobLinks"
                   href={positionUrl}
                 >
-                  <span className="icon">
-                    <FaLink />
-                  </span>
-                  position
+                  {textToIcon(jobSearchSite)}
                 </a>
               )}
             </div>
@@ -148,7 +180,9 @@ const Job = ({
                 <span>
                   <FaEuroSign />
                 </span>
-                <p>{salary} € / years</p>
+                <p>
+                  {salary} €/years {salary2 && `to ${salary2} €/years`}
+                </p>
               </div>
             )}
             {comment && (
@@ -211,6 +245,8 @@ Job.propTypes = {
   contact: PropTypes.string,
   contact2: PropTypes.string,
   targetSource: PropTypes.string,
-  salary: PropTypes.number
+  jobSearchSite: PropTypes.string,
+  salary: PropTypes.number,
+  salary2: PropTypes.number
 }
 export default Job

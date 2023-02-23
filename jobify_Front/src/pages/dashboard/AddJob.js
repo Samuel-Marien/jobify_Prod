@@ -34,7 +34,10 @@ const AddJob = () => {
     contact2,
     targetSource,
     targetSourceOptions,
-    salary
+    salary,
+    salary2,
+    jobSearchSite,
+    jobSearchSiteOptions
   } = useAppContext()
 
   const handleSubmit = (e) => {
@@ -79,7 +82,6 @@ const AddJob = () => {
             value={company}
             onChange={handleJobInput}
           />
-
           {/* job type */}
           <FormRowSelect
             labelText="job type"
@@ -88,7 +90,6 @@ const AddJob = () => {
             onChange={handleJobInput}
             list={jobTypeOptions}
           />
-
           <FormRow
             type="text"
             labelText="position Url"
@@ -96,7 +97,6 @@ const AddJob = () => {
             value={positionUrl}
             onChange={handleJobInput}
           />
-
           <FormRow
             type="text"
             labelText="Company Web site"
@@ -104,7 +104,6 @@ const AddJob = () => {
             value={companyWebSite}
             onChange={handleJobInput}
           />
-
           {/* job status */}
           <FormRowSelect
             labelText="Status"
@@ -113,7 +112,6 @@ const AddJob = () => {
             onChange={handleJobInput}
             list={statusOptions}
           />
-
           {/* location */}
           <FormRow
             type="text"
@@ -122,7 +120,6 @@ const AddJob = () => {
             value={jobLocation}
             onChange={handleJobInput}
           />
-
           {/* adress  */}
           <FormRow
             type="text"
@@ -131,7 +128,6 @@ const AddJob = () => {
             value={adress}
             onChange={handleJobInput}
           />
-
           {/* target source  */}
           <FormRowSelect
             labelText="target source"
@@ -140,7 +136,6 @@ const AddJob = () => {
             onChange={handleJobInput}
             list={targetSourceOptions}
           />
-
           {/* contact 1  */}
           <FormRow
             type="text"
@@ -157,16 +152,36 @@ const AddJob = () => {
             value={contact2}
             onChange={handleJobInput}
           />
-
+          {/* job search site  */}
+          <FormRowSelect
+            labelText="job search site"
+            name="jobSearchSite"
+            value={jobSearchSite}
+            onChange={handleJobInput}
+            list={jobSearchSiteOptions}
+          />
           {/* salary  */}
           <FormRow
             type="number"
-            labelText="salary (years)"
+            labelText="salary min (/Years)"
             name="salary"
             value={salary}
             onChange={handleJobInput}
           />
-
+          <FormRow
+            type="number"
+            labelText="salary max (/Years)"
+            name="salary2"
+            value={salary2}
+            onChange={handleJobInput}
+          />
+          <FormRow
+            type="number"
+            labelText="impression"
+            name="salary"
+            value={salary}
+            onChange={handleJobInput}
+          />
           {/* comment  */}
           <FormRowTextArea
             type="text"
@@ -175,9 +190,7 @@ const AddJob = () => {
             value={comment}
             onChange={handleJobInput}
           />
-
           <br />
-
           <div className="btn-container">
             <button
               className="btn btn-block submit-btn"

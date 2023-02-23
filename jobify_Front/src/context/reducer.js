@@ -176,7 +176,9 @@ const reducer = (state, action) => {
       contact: '',
       contact2: '',
       salary: '',
-      targetSource: 'job advertisement'
+      salary2: '',
+      targetSource: 'job advertisement',
+      jobSearchSite: 'Other'
     }
     return {
       ...state,
@@ -241,7 +243,9 @@ const reducer = (state, action) => {
       adress,
       contact,
       contact2,
-      salary
+      salary,
+      salary2,
+      jobSearchSite
     } = job
 
     return {
@@ -259,7 +263,9 @@ const reducer = (state, action) => {
       adress,
       contact,
       contact2,
-      salary
+      salary,
+      salary2,
+      jobSearchSite
     }
   }
 
