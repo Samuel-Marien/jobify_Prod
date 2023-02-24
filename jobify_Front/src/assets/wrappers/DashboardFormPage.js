@@ -20,9 +20,10 @@ const Wrapper = styled.section`
   .form-row {
     margin-bottom: 0;
   }
-  
-  }
 
+  .required {
+    color: red;
+  }
   .form-center {
     display: grid;
     row-gap: 0.5rem;

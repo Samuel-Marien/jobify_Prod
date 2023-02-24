@@ -72,6 +72,7 @@ const AddJob = () => {
         {/* position */}
         <div className="form-center">
           <FormRow
+            required
             type="text"
             name="position"
             value={position}
@@ -79,6 +80,7 @@ const AddJob = () => {
           />
           {/* company */}
           <FormRow
+            required
             type="text"
             name="company"
             value={company}
@@ -116,6 +118,7 @@ const AddJob = () => {
           />
           {/* location */}
           <FormRow
+            required
             type="text"
             labelText="location"
             name="jobLocation"
