@@ -91,7 +91,7 @@ const initialState = {
     'Very nice',
     'Lovely'
   ],
-  feeling: 'Neutral',
+  feeling: 'all',
   jobs: [],
   totalJobs: 0,
   numOfPages: 1,
@@ -296,8 +296,8 @@ const AppProvider = ({ children }) => {
   }
 
   const getJobs = async () => {
-    const { page, search, searchStatus, searchType, sort } = state
-    let url = `/jobs?page=${page}&status=${searchStatus}&jobType=${searchType}&sort=${sort}`
+    const { page, search, searchStatus, searchType, sort, feeling } = state
+    let url = `/jobs?page=${page}&status=${searchStatus}&jobType=${searchType}&sort=${sort}&feeling=${feeling}`
 
     if (search) {
       url = url + `&search=${search}`

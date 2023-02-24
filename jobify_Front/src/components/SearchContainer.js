@@ -15,7 +15,9 @@ const SearchContainer = () => {
     statusOptions,
     jobTypeOptions,
     handleChange,
-    clearFilters
+    clearFilters,
+    feelingOptions,
+    feeling
   } = useAppContext()
 
   const handleSearch = (e) => {
@@ -47,8 +49,8 @@ const SearchContainer = () => {
             onChange={handleSearch}
             list={['all', ...statusOptions]}
           ></FormRowSelect>
-          {/* search by type */}
 
+          {/* search by type */}
           <FormRowSelect
             labelText="job type"
             name="searchType"
@@ -56,14 +58,23 @@ const SearchContainer = () => {
             onChange={handleSearch}
             list={['all', ...jobTypeOptions]}
           ></FormRowSelect>
-          {/* sort */}
 
+          {/* sort */}
           <FormRowSelect
             name="sort"
             value={sort}
             onChange={handleSearch}
             list={sortOptions}
           ></FormRowSelect>
+
+          <FormRowSelect
+            labelText="Feeling"
+            name="feeling"
+            value={feeling}
+            onChange={handleSearch}
+            list={['all', ...feelingOptions]}
+          ></FormRowSelect>
+
           <button
             className="btn btn-block btn-danger"
             disabled={isLoading}

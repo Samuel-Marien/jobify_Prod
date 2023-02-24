@@ -32,7 +32,7 @@ const deleteJob = async (req, res) => {
 }
 
 const getAllJobs = async (req, res) => {
-  const { search, status, jobType, sort } = req.query
+  const { search, status, jobType, sort, feeling } = req.query
 
   const queryObject = {
     createdBy: req.user.userId
@@ -43,6 +43,9 @@ const getAllJobs = async (req, res) => {
   }
   if (jobType !== 'all') {
     queryObject.jobType = jobType
+  }
+  if (feeling !== 'all') {
+    queryObject.feeling = feeling
   }
   if (search) {
     queryObject.position = { $regex: search, $options: 'i' }

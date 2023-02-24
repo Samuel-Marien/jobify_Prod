@@ -17,13 +17,14 @@ const JobsContainer = () => {
     searchStatus,
     searchType,
     sort,
-    numOfPages
+    numOfPages,
+    feeling
   } = useAppContext()
 
   useEffect(() => {
     getJobs()
     // eslint-disable-next-line
-  }, [page, search, searchStatus, searchType, sort])
+  }, [page, search, searchStatus, searchType, sort, feeling])
 
   if (isLoading) {
     return <Loading center />
@@ -47,9 +48,8 @@ const JobsContainer = () => {
           return <Job key={job._id} {...job} />
         })}
       </div>
-      {numOfPages > 1 && <PageBtnContainer />}
-
       {/* pagination buttons  */}
+      {numOfPages > 1 && <PageBtnContainer />}
     </Wrapper>
   )
 }
